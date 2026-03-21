@@ -24,3 +24,8 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 | Profit Margin  | Sum(profit) / sum(sales) * 100 |   Operational Effiency  | 
 | AVG Discount  | avg(discount) * 100 |   Discount impact on profit | 
 | Sales & Profit by Category  | sum(sales) and sum(profits) group by Category  |  Category Performance | 
+| Sales & Profit by Region |  sum(sales) and sum(profits) group by Region |   Region Performance | 
+| Sales & Profit by State |  sum(sales) and sum(profits) group by Region |   Map Visulaization includes Region / State | 
+| Year over Year Trend |  Order date, sales, profit Group by Extract Year|   Business Growth | 
+| Sales Growth % |  (current-previous) / previous * 100 |   Year over Year Validation | 
+| Top 5 / Bottom 5 States |  Group by profit asc / desc limit 5 |   best and worse state performance | 
