@@ -48,5 +48,8 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 ## Tableau Dashboard
 [Refer Here!](https://public.tableau.com/views/SuperstoreRegionalPerformance_17740908695100/Dashboard1)
 
-
+## Dashboard Features
+* KPI Cards - Total Sales, Total Profit, Profit Margin, Average Discount
+* Dynamic Region Filter - Click to Filter all charts Simultaneusly
+* Filter Actions connecting all charts Together
 
