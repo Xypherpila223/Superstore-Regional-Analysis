@@ -9,3 +9,8 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 | Problem 1  | Problem 2 |
 | ------------- | ------------- |
 | Which regions and states are underperforming in sales and profits  | Full Businesss performance review for board-level presentation  |
+
+## Dataset Information
+| Detail  | Link |
+| ------------- | ------------- |
+|   Kaggle            |     kaggle.com/datasets/vivek468/superstore-dataset-final      |
