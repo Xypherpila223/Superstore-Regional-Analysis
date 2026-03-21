@@ -46,6 +46,6 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 | Profit Growth 2014 to 2017 | +88% | 
 
 ## Tableau Dashboard
-[Refer Here!]([https://public.tableau.com/app/profile/john.butch.gromontil/vizzes](https://public.tableau.com/views/SuperstoreRegionalPerformance_17740908695100/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link))
+[Refer Here!]([https://public.tableau.com/views/SuperstoreRegionalPerformance_17740908695100/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link])
 
 
