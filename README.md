@@ -40,7 +40,12 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 | ------------- | ------------- |
 | Total Sales | $2,297,201 | 
 | Total Profit | $286,397 | 
+| Profit Margin | 12.5% | 
+| Average Discount | 15.62% | 
+| Sales Growth 2014 to 2017 | +51% | 
+| Profit Growth 2014 to 2017 | +88% | 
 
-
+## Tableau Dashboard
+[Refer Here!]([https://public.tableau.com/app/profile/john.butch.gromontil/vizzes](https://public.tableau.com/views/SuperstoreRegionalPerformance_17740908695100/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link))
 
 
