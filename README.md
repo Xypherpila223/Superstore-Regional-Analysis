@@ -29,3 +29,18 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 | Year over Year Trend |  Order date, sales, profit Group by Extract Year|   Business Growth | 
 | Sales Growth % |  (current-previous) / previous * 100 |   Year over Year Validation | 
 | Top 5 / Bottom 5 States |  Group by profit asc / desc limit 5 |   best and worse state performance | 
+
+## Sql Formula
+
+📝 Note: For the SQL formulas, please refer to the files included in this repository. Thank you! 
+
+## Key Findings
+### Overall KPI 
+| Metrics  | Values | 
+| ------------- | ------------- |
+| Total Sales | $2,297,201 | 
+| Total Profit | $286,397 | 
+
+
+
+
