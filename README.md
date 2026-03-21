@@ -23,3 +23,4 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 | Total Profit  | Sum(profit) |   overall actual earning after cost | 
 | Profit Margin  | Sum(profit) / sum(sales) * 100 |   Operational Effiency  | 
 | AVG Discount  | avg(discount) * 100 |   Discount impact on profit | 
+| Sales & Profit by Category  | sum(sales) and sum(profits) group by Category  |  Category Performance | 
