@@ -14,3 +14,9 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 | Detail  | Link |
 | ------------- | ------------- |
 |   Kaggle            |     kaggle.com/datasets/vivek468/superstore-dataset-final      |
+
+## Metrics Used 
+
+| t1  | t2 |   t3 | 
+| ------------- | ------------- | ------------- |
+| t1  | t2 |   t3 | 
