@@ -17,6 +17,9 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 
 ## Metrics Used 
 
-| t1  | t2 |   t3 | 
+| Metrics  | Formula / column |   Purpose | 
 | ------------- | ------------- | ------------- |
-| t1  | t2 |   t3 | 
+| Total Sales  | Sum(sales) |   overall revenue / sales | 
+| Total Profit  | Sum(profit) |   overall actual earning after cost | 
+| Profit Margin  | Sum(profit) / sum(sales) * 100 |   Operational Effiency  | 
+| AVG Discount  | avg(discount) * 100 |   Discount impact on profit | 
