@@ -1,6 +1,9 @@
 # Superstore-Regional-Analysis
 This Project Analyze the Saample Superstore dataset to identify businness bperformance gaps and regional underperfornnabce across the United State. The Analysis was built to simulate a real-world business intellegence task assigned by stake holders
 
+## Tools Used
+PostgreSQL | pgAdmin 4 | Tableu Public | Excel
+
 ## Stakeholders Problem Statement
 "I need a complete business performance report. The centerpiece must answer why some regions and states are underperforming, and what we should do about it. I want data-backend recommendation, not just pretty charts" - Sales Director
 
@@ -14,6 +17,7 @@ This Project Analyze the Saample Superstore dataset to identify businness bperfo
 | Detail  | Link |
 | ------------- | ------------- |
 |   Kaggle            |     kaggle.com/datasets/vivek468/superstore-dataset-final      |
+|   Period       |    2014 - 2017    |
 
 ## Metrics Used 
 
