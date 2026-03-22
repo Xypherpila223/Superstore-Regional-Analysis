@@ -23,3 +23,27 @@ FROM test
 GROUP BY "Category"
 ORDER BY "Total Sales" DESC;
 ```
+
+## Discount Kills Profit
+Clear negative correlation found — orders with 40% or more discount consistently result in negative profit. The company is losing money on heavily discounted sales.
+
+### Supporting Query
+
+``` sql
+
+/*
+ * Purpose  : Validate that discount values of 40% or more exist.
+ * Method   : COUNT orders and DISTINCT discount values WHERE Discount >= 0.4
+ * Used for : Data validation before analysis
+ * Table    : test
+ */
+
+SELECT
+    COUNT(*)                                        AS "Total Orders",
+    COUNT(DISTINCT "Discount")                      AS "Unique Discount Levels",
+    ROUND(MIN("Discount")::NUMERIC * 100, 0)        AS "Min Discount %",
+    ROUND(MAX("Discount")::NUMERIC * 100, 0)        AS "Max Discount %"
+FROM test
+WHERE "Discount" >= 0.4;
+
+```
