@@ -72,3 +72,5 @@ GROUP BY "Discount"
 ORDER BY "Discount" ASC;
 
 ```
+
+## Regional Underperformance
