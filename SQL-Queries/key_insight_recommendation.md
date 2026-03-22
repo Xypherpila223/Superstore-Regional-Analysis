@@ -157,3 +157,77 @@ CROSS JOIN overall_avg o
 ORDER BY r."Profit Margin %" ASC;
 
 ```
+## Growth Slowing
+
+Sales grew +51% from 2014 to 2017 which is positive. However profit growth is slowing in 2017 — sales grew 20% but profit only grew 14%, suggesting discounting is eating into margins.
+
+### Supporting Query
+
+
+```sql
+/*
+ * Purpose  : Prove that sales grew +51% from 2014 to 2017 but
+ *            profit growth is slowing — sales grew 20% in 2017
+ *            but profit only grew 14%, suggesting discounts
+ *            are eating into margins.
+ * Method   : CTE for yearly totals, LAG() for YoY growth %.
+ *            Outer query flags slowing profit growth.
+ * Formula  : (Current - Previous) / Previous * 100
+ * Format   : Rounded to 2 decimal places.
+ * Used for : Key Insight — Year over Year Growth Trend
+ * Table    : test
+ */
+
+WITH yearly_totals AS (
+    -- STEP 1: Aggregate total sales and profit per year
+    SELECT
+        EXTRACT(YEAR FROM TO_DATE("Order Date", 'MM/DD/YYYY'))  AS "Year",
+        ROUND(SUM("Sales")::NUMERIC, 2)                         AS "Total Sales",
+        ROUND(SUM("Profit")::NUMERIC, 2)                        AS "Total Profit"
+    FROM test
+    GROUP BY EXTRACT(YEAR FROM TO_DATE("Order Date", 'MM/DD/YYYY'))
+),
+yoy_growth AS (
+    -- STEP 2: Calculate year over year growth % using LAG
+    SELECT
+        "Year",
+        "Total Sales",
+        "Total Profit",
+        ROUND(
+            ("Total Sales" - LAG("Total Sales") OVER (ORDER BY "Year"))
+            / LAG("Total Sales") OVER (ORDER BY "Year") * 100
+        ::NUMERIC, 2)                                           AS "Sales Growth %",
+        ROUND(
+            ("Total Profit" - LAG("Total Profit") OVER (ORDER BY "Year"))
+            / LAG("Total Profit") OVER (ORDER BY "Year") * 100
+        ::NUMERIC, 2)                                           AS "Profit Growth %"
+    FROM yearly_totals
+)
+
+-- STEP 3: Flag years where profit growth lags behind sales growth
+SELECT
+    "Year",
+    "Total Sales",
+    "Total Profit",
+    "Sales Growth %",
+    "Profit Growth %",
+    CASE
+        WHEN "Profit Growth %" IS NULL                        THEN '⚪ Baseline Year'
+        WHEN "Profit Growth %" >= "Sales Growth %"            THEN '🟢 Profit Keeping Pace'
+        WHEN "Profit Growth %" >= "Sales Growth %" * 0.8      THEN '🟡 Profit Slightly Lagging'
+        ELSE                                                       '🔴 Profit Growth Slowing'
+    END                                                       AS "Growth Status",
+    CASE
+        WHEN "Profit Growth %" IS NULL
+        THEN 'Baseline — no prior year'
+        WHEN "Profit Growth %" >= "Sales Growth %"
+        THEN 'Profit growing in line with sales'
+        WHEN "Profit Growth %" >= "Sales Growth %" * 0.8
+        THEN 'Profit slightly lagging behind sales growth'
+        ELSE
+        'Profit growth slowing — discounting likely eating into margins'
+    END                                                       AS "Insight"
+FROM yoy_growth
+ORDER BY "Year" ASC;
+
+```
