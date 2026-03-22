@@ -7,7 +7,8 @@
 -- Retrieves the total profit per product category.
 -- Rounded to decimal places and sorted
 -- from lowest to highest proft.
--- table: products / test (table name) i separate some group but highly suggested to query inside whole csv 
+-- table: products / test (table name) 
+-- Data is split into separate groups but it is highly recommended to query against the full CSV dataset for more accurate results.
 
 */
 
