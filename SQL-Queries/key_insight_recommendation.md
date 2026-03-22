@@ -235,10 +235,23 @@ ORDER BY "Year" ASC;
 
 # Recommendations 
 
-•	Review Furniture discount policy — 17% avg discount is the main cause of 2.49% margin
-•	Cap discounts at 20% maximum — data shows 40%+ discounts result in net losses
-•	Invest more sales resources in Central and South regions
-•	Focus growth strategy on Technology — highest margin category at 17.4%
-•	Investigate 2015 sales dip — only year sales declined, worth investigating the cause
+-- ================================================
+-- RECOMMENDATIONS
+-- ================================================
+-- 1. Review Furniture discount policy
+--    17% avg discount is the main cause of 2.49% margin.
+--
+-- 2. Cap discounts at 20% maximum
+--    Data shows 40%+ discounts result in net losses.
+--
+-- 3. Invest more sales resources in Central and South regions
+--    Both regions are underperforming below regional average margin.
+--
+-- 4. Focus growth strategy on Technology
+--    Highest margin category at 17.4%.
+--
+-- 5. Investigate 2015 sales dip
+--    Only year sales declined, worth investigating the cause.
+-- ================================================
 
 
