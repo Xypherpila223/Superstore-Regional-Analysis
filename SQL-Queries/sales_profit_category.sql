@@ -1,9 +1,10 @@
--- Query: Sales & Profit by category
+-- Query: Total Sales & Profit by category
 -- Author: John Butch Gromontil
 -- Date: 2026-03-21
 
 /* 
 
+-- Retrieves Total Sales & Profit by Category
 --
 
 
