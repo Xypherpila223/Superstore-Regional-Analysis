@@ -8,9 +8,9 @@ Root cause is the highest average discount at 17%.
 ### Supporting Query
 ```sql
 /*
- * Purpose  : Validate Furniture profit gap vs other categories.
- * Method   : SUM(Sales), SUM(Profit), Profit Margin %, AVG(Discount)
- * Table    : test
+ -- Purpose  : Validate Furniture profit gap vs other categories.
+ -- Method   : SUM(Sales), SUM(Profit), Profit Margin %, AVG(Discount)
+ -- Table    : test
  */
 
 SELECT
@@ -42,5 +42,33 @@ SELECT
     ROUND(MAX("Discount")::NUMERIC * 100, 0)        AS "Max Discount %"
 FROM test
 WHERE "Discount" >= 0.4;
+
+```
+### Proving High Discount affects profits
+```sql
+/*
+ -- Purpose  : Prove that discounts of 40% or more
+ --            consistently result in negative profit.
+ -- Method   : GROUP BY Discount, AVG(Profit), COUNT orders.
+ -- Filter   : WHERE Discount >= 0.4
+ -- Format   : Rounded to 2 decimal places.
+ -- Used for : Key Insight validation
+ -- Table    : test
+ */
+
+SELECT
+    ROUND("Discount"::NUMERIC * 100, 0)       AS "Discount %",
+    COUNT(*)                                   AS "No. of Orders",
+    ROUND(AVG("Profit")::NUMERIC, 2)           AS "Avg Profit",
+    ROUND(SUM("Profit")::NUMERIC, 2)           AS "Total Profit",
+    CASE
+        WHEN AVG("Profit") < 0  THEN '🔴 Loss'
+        WHEN AVG("Profit") = 0  THEN '🟡 Break Even'
+        ELSE                         '🟢 Gain'
+    END                                        AS "Profit Status"
+FROM test
+WHERE "Discount" >= 0.4
+GROUP BY "Discount"
+ORDER BY "Discount" ASC;
 
 ```
