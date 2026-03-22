@@ -5,14 +5,10 @@
 
 /*
 -- Retrievel Total Profit
--- Round to 0 decimal places
+-- Round to 0 decimal places]
+-- Table: Products / Test (table_name)
 -- Used as KPI Card
-
-
 */
-
-
-
 
 
 select ROUND(SUM("Profit"):: numeric,0) as "Total Profit"
