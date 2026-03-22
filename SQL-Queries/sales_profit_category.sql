@@ -5,9 +5,10 @@
 /* 
 
 -- Retrieves Total Sales & Profit by Category
---
-
-
+-- Rounded to decimal and sorted by profit and sales
+-- lowest to Highest profit and sales
+-- Table: Products / Test (table_name)
+-- this query used as my metric for dashboard
 
 */
 
