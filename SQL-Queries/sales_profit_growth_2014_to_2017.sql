@@ -1,13 +1,15 @@
-
+-- Overall Profit and Sales Growth
+-- AuthorL John Butch Gromontil
+-- Date: 2026-03-26
 
 /*
 
- * Retrieves overall sales and profit growth percentage
- * from 2014 to 2017 using a subquery as the base.
- * Subquery aggregates total sales and profit per year.
- * Outer query compares 2014 vs 2017 using CASE pivot.
- * Formula  : (2017 - 2014) / 2014 * 100
- * Table    : test
+ -- Retrieves overall sales and profit growth percentage
+ -- from 2014 to 2017 using a subquery as the base.
+ -- Subquery aggregates total sales and profit per year.
+ -- Outer query compares 2014 vs 2017 using CASE pivot.
+ -- Formula: (2017 - 2014) / 2014 * 100
+ -- Table: test (table_name)
 
 */
 
