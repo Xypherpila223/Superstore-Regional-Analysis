@@ -30,13 +30,7 @@ Clear negative correlation found — orders with 40% or more discount consistent
 ### Supporting Query
 
 ``` sql
-
-/*
- * Purpose  : Validate that discount values of 40% or more exist.
- * Method   : COUNT orders and DISTINCT discount values WHERE Discount >= 0.4
- * Used for : Data validation before analysis
- * Table    : test
- */
+### Validation that 0.4 and 0.8 exist
 
 SELECT
     COUNT(*)                                        AS "Total Orders",
