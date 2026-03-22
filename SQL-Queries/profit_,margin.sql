@@ -4,8 +4,10 @@
 
 /*
 -- Retrieves overall profit margin %.
--- use Case to Get status 
+-- Status is determined using CASE expressions. 
 -- round to 1 decimal place 
+-- Used for KPI Dashboard Card
+-- Table: Products / test (table_name)
 */
 
 
