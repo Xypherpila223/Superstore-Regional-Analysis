@@ -7,7 +7,7 @@
 -- Retrieves overall Total Sales.
 -- Round to 0 decimal places.
 -- Table: Products / Test (table_name)
--- Used as KPI Card
+-- Used as KPI Dashboard Card
 */
 
 
