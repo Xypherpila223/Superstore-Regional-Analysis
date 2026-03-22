@@ -74,7 +74,11 @@ ORDER BY "Discount" ASC;
 ```
 
 ## Regional Underperformance
-Central region has the lowest profit at $39,706 despite $501K in sales. South also underperforming at $46,749. West is the strongest at $108,418. 
+
+Central region has the lowest profit margin at 7.92% despite $501K in sales 
+— the only region below the 10% benchmark. South at 11.94% sits below the 
+regional average margin, indicating room for improvement. 
+West leads at 14.94% profit margin.
 
 ### Supporting Query
   ### Validates Region Exist
