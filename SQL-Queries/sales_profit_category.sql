@@ -9,7 +9,7 @@
 -- from lowest to highest proft.
 -- table: products / test (table name) 
 -- Data is split into separate groups but it is highly recommended to query against the full CSV dataset for more accurate results.
-
+-- this was used to check if the query we will use is going to work by checking one side of information which is profit.
 */
 
 SELECT "Category",
