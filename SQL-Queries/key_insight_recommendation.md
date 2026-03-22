@@ -105,26 +105,55 @@ ORDER BY "Region" ASC;
  ```sql
 
 /*
- * Purpose  : Validate regional sales and profit performance.
- * Method   : SUM(Sales), SUM(Profit), Profit Margin % by Region.
+ * Purpose  : Prove that Central is the only region below 10% benchmark,
+ *            South sits below regional average, and West leads all regions.
+ * Method   : CTE for regional summary and overall average margin.
+ *            CASE flags based on 10% benchmark and regional average.
+ * Formula  : SUM(Profit) / SUM(Sales) * 100
  * Format   : Rounded to 2 decimal places.
  * Used for : Key Insight — Regional Profit Performance
  * Table    : test
  */
 
+WITH regional_summary AS (
+    -- STEP 1: Calculate sales, profit and margin per region
+    SELECT
+        "Region",
+        ROUND(SUM("Sales")::NUMERIC, 2)                                  AS "Total Sales",
+        ROUND(SUM("Profit")::NUMERIC, 2)                                 AS "Total Profit",
+        ROUND(SUM("Profit")::NUMERIC / SUM("Sales")::NUMERIC * 100, 2)  AS "Profit Margin %"
+    FROM test
+    GROUP BY "Region"
+),
+overall_avg AS (
+    -- STEP 2: Calculate regional average margin as baseline
+    SELECT ROUND(AVG("Profit Margin %")::NUMERIC, 2) AS "Avg Margin %"
+    FROM regional_summary
+)
+
+-- STEP 3: Flag each region against 10% benchmark and regional average
 SELECT
-    "Region",
-    ROUND(SUM("Sales")::NUMERIC, 2)                                  AS "Total Sales",
-    ROUND(SUM("Profit")::NUMERIC, 2)                                 AS "Total Profit",
-    ROUND(SUM("Profit")::NUMERIC / SUM("Sales")::NUMERIC * 100, 2)  AS "Profit Margin %",
+    r."Region",
+    r."Total Sales",
+    r."Total Profit",
+    r."Profit Margin %",
+    o."Avg Margin %",
     CASE
-        WHEN SUM("Profit") / SUM("Sales") * 100 >= 20  THEN '🟢 Excellent'
-        WHEN SUM("Profit") / SUM("Sales") * 100 >= 10  THEN '🟢 Healthy'
-        WHEN SUM("Profit") / SUM("Sales") * 100 >= 0   THEN '🟡 Low'
-        ELSE                                                 '🔴 Negative'
-    END                                                              AS "Profit Status"
-FROM test
-GROUP BY "Region"
-ORDER BY "Total Profit" ASC;
+        WHEN r."Profit Margin %" < 10                THEN '🔴 Below 10% Benchmark'
+        WHEN r."Profit Margin %" < o."Avg Margin %"  THEN '🟡 Below Regional Average'
+        ELSE                                              '🟢 Above Regional Average'
+    END                                               AS "Performance Status",
+    CASE
+        WHEN r."Profit Margin %" < 10
+        THEN 'Underperforming — only region below 10% benchmark'
+        WHEN r."Profit Margin %" < o."Avg Margin %"
+        THEN 'Room for improvement — below regional average'
+        WHEN r."Profit Margin %" = (SELECT MAX("Profit Margin %") FROM regional_summary)
+        THEN 'Leads all regions in profit margin'
+        ELSE 'Performing well'
+    END                                               AS "Insight"
+FROM regional_summary r
+CROSS JOIN overall_avg o
+ORDER BY r."Profit Margin %" ASC;
 
 ```
