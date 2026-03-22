@@ -3,15 +3,12 @@
 -- Date: 2026-03-21
 
 /* 
--- Calculates Sales, Profit and Profit Margin Growth %.
---
-
-
+-- Calculates total sales, profit and profit margin per state.
+-- Round to 2 Decimal Places
+-- for each state grouped under their respective region.
+-- Ordered by region A-Z then highest sales first.
+-- Table: test (test_name)
 */
-
-
-
-
 
 SELECT
     "Region",
