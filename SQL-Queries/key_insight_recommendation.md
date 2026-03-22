@@ -74,3 +74,53 @@ ORDER BY "Discount" ASC;
 ```
 
 ## Regional Underperformance
+Central region has the lowest profit at $39,706 despite $501K in sales. South also underperforming at $46,749. West is the strongest at $108,418. 
+
+### Supporting Query
+  ### Validates Region Exist
+```sql
+
+/*
+ * Purpose  : Validate all regions exist in the dataset.
+ * Method   : COUNT orders and DISTINCT regions.
+ * Used for : Data validation before analysis
+ * Table    : test
+ */
+
+SELECT DISTINCT
+    "Region",
+    COUNT(*) AS "No. of Orders"
+FROM test
+GROUP BY "Region"
+ORDER BY "Region" ASC;
+
+```
+
+ ### Proving that Central and South Region are underperforming
+
+ ```sql
+
+/*
+ * Purpose  : Validate regional sales and profit performance.
+ * Method   : SUM(Sales), SUM(Profit), Profit Margin % by Region.
+ * Format   : Rounded to 2 decimal places.
+ * Used for : Key Insight — Regional Profit Performance
+ * Table    : test
+ */
+
+SELECT
+    "Region",
+    ROUND(SUM("Sales")::NUMERIC, 2)                                  AS "Total Sales",
+    ROUND(SUM("Profit")::NUMERIC, 2)                                 AS "Total Profit",
+    ROUND(SUM("Profit")::NUMERIC / SUM("Sales")::NUMERIC * 100, 2)  AS "Profit Margin %",
+    CASE
+        WHEN SUM("Profit") / SUM("Sales") * 100 >= 20  THEN '🟢 Excellent'
+        WHEN SUM("Profit") / SUM("Sales") * 100 >= 10  THEN '🟢 Healthy'
+        WHEN SUM("Profit") / SUM("Sales") * 100 >= 0   THEN '🟡 Low'
+        ELSE                                                 '🔴 Negative'
+    END                                                              AS "Profit Status"
+FROM test
+GROUP BY "Region"
+ORDER BY "Total Profit" ASC;
+
+```
