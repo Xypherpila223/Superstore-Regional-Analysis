@@ -5,7 +5,8 @@
 
 /*
 -- Retrievel Total Profit
--- 
+-- Round to 0 decimal places
+-- Used as KPI Card
 
 
 */
