@@ -4,8 +4,8 @@
 
 
 /*
--- Retrievel Total Sales
--- Round to 0 decimal places]
+-- Retrieves overall Total Sales.
+-- Round to 0 decimal places.
 -- Table: Products / Test (table_name)
 -- Used as KPI Card
 */
