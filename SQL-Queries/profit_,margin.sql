@@ -3,7 +3,9 @@
 -- Date: 2026-03-21
 
 /*
-
+-- Retrieves overall profit margin %.
+-- use Case to Get status 
+-- round to 1 decimal place 
 
 
 
