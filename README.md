@@ -1,5 +1,5 @@
 # Superstore-Regional-Analysis
-This Project Analyze the Saample Superstore dataset to identify businness bperformance gaps and regional underperfornnabce across the United State. The Analysis was built to simulate a real-world business intellegence task assigned by stake holders
+This Project Analyze the Saample Superstore dataset to identify businness performance gaps and regional underperfornnabce across the United State. The Analysis was built to simulate a real-world business intellegence task assigned by stake holders
 
 ## Tools Used
 PostgreSQL | pgAdmin 4 | Tableu Public | Excel
