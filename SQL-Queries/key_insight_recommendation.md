@@ -24,6 +24,14 @@ GROUP BY "Category"
 ORDER BY "Total Sales" DESC;
 ```
 
+| Category | Total_sales | total_profit | profit_margin  | avg_dicount |
+|-------|-----|-----|-------|-----|
+| Technology | 836154.03  | 145454.95 | 	17.40 | 13.23  |
+| Furniture   | 741999.80 | 18451.27 | 2.49  | 17.39  | 
+| Office Supplies | 	719047.0  | 122490.80  | 17.04  |15.73 |
+
+
+
 ## Discount Kills Profit
 Clear negative correlation found — orders with 40% or more discount consistently result in negative profit. The company is losing money on heavily discounted sales.
 
