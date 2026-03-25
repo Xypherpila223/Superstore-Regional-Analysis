@@ -23,6 +23,7 @@ FROM test
 GROUP BY "Category"
 ORDER BY "Total Sales" DESC;
 ```
+## Result
 
 | Category | Total_sales | total_profit | profit_margin  | avg_dicount |
 |-------|-----|-----|-------|-----|
